@@ -1,0 +1,510 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ProcessItems" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Link" Type="InArgument(x:String)" />
+    <x:Property Name="ExcelFile" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1496,6560</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ProcessItems_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Services.RuntimeAnalyze</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>UiPath.Excel.Model</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="ProcessItems" sap:VirtualizedContainerService.HintSize="1506,6495.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Int32" Name="Count" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1444,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_4" Message="[&quot;Processing...&quot;+ExcelFile]" />
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Setup and Maintenance - Oracle Applications" sap:VirtualizedContainerService.HintSize="1444,6200" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="456ff9a9-d063-4d3f-8a50-19d7a50694f6" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1410,5980.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_8">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="1348,5864.666666666667" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1">
+              <ueab:ExcelProcessScopeX.Body>
+                <ActivityAction x:TypeArguments="ui:IExcelProcess">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
+                  </ActivityAction.Argument>
+                  <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="1314,5777.333333333333" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_2" ResizeWindow="None" WorkbookPath="[ExcelFile]">
+                    <ueab:ExcelApplicationCard.Body>
+                      <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1280,5496.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="sd:DataTable" Name="dt_Processing" />
+                            <Variable x:TypeArguments="x:String" Name="RowCount" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NSelectItem DisplayName="Select Item 'A pt1:r1:0:r0:0:r1:0:AP…'" sap:VirtualizedContainerService.HintSize="1218,159.33333333333334" sap2010:WorkflowViewState.IdRef="NSelectItem_4" Item="Procurement" ScopeIdentifier="456ff9a9-d063-4d3f-8a50-19d7a50694f6" Version="V3">
+                            <uix:NSelectItem.Items>
+                              <scg:List x:TypeArguments="x:String" Capacity="6">
+                                <x:String>Enterprise Contracts</x:String>
+                                <x:String>Financials</x:String>
+                                <x:String>Procurement</x:String>
+                                <x:String>Project Execution Management</x:String>
+                                <x:String>Project Financial Management</x:String>
+                                <x:String>Workforce Deployment</x:String>
+                              </scg:List>
+                            </uix:NSelectItem.Items>
+                            <uix:NSelectItem.Target>
+                              <uix:TargetAnchorable BrowserURL="https://fa-ewqc-saasfaprod1.fa.ocs.oraclecloud.com/fscmUI/faces/FuseTaskListManagerTop?_adf.ctrl-state=zgjq0ticn_1&amp;_adf.no-new-window-redirect=true&amp;_afrLoop=21447315905764930&amp;_afrWindowMode=0&amp;_afrWindowId=yi18rjmnb&amp;_afrFS=16&amp;_afrMT=screen&amp;_afrMFW=1280&amp;_afrMFH=665&amp;_afrMFDW=1280&amp;_afrMFDH=800&amp;_afrMFC=8&amp;_afrMFCI=0&amp;_afrMFM=0&amp;_afrMFR=144&amp;_afrMFG=0&amp;_afrMFS=0&amp;_afrMFO=0" DesignTimeRectangle="310, 242, 28, 20" DesignTimeScaleFactor="1.5" FriendlyName="'A pt1:r1:0:r0:0:r1:0:AP…'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span&amp;gt;span&amp;gt;div&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table' tableCol='3' tableRow='1' tag='TABLE' /&gt;&lt;webctrl aria-role='button' tableRow='1' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aria-role='button' type='' tag='A' class='x1l4' aaname='' /&gt;" Guid="f40fe1d0-e097-46d4-8d3a-b6d5455ed4b9" InformativeScreenshot="87308f69439c7ba7b54681ca308ace26.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='2hbtnejzn' title='Setup: Procurement - Setup and Maintenance - Oracle Fusion Cloud Applications' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+                            </uix:NSelectItem.Target>
+                          </uix:NSelectItem>
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Procurement Foundation'" sap:VirtualizedContainerService.HintSize="1218,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="456ff9a9-d063-4d3f-8a50-19d7a50694f6" Version="V3">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="https://fa-ewqc-saasfaprod1.fa.ocs.oraclecloud.com/fscmUI/faces/FuseTaskListManagerTop?_adf.ctrl-state=154wtffqpf_130&amp;_adf.no-new-window-redirect=true&amp;_afrLoop=11687045990050731&amp;_afrFS=16&amp;_afrMT=screen&amp;_afrMFW=1920&amp;_afrMFH=945&amp;_afrMFDW=1920&amp;_afrMFDH=1080&amp;_afrMFC=8&amp;_afrMFCI=0&amp;_afrMFM=0&amp;_afrMFR=96&amp;_afrMFG=0&amp;_afrMFS=0&amp;_afrMFO=0" DesignTimeRectangle="55, 702, 132, 14" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Procurement Foundation'" FullSelectorArgument="&lt;webctrl aria-role='presentation' css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span&amp;gt;span&amp;gt;div&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;table' idx='11' tableCol='1' tableRow='1' tag='TABLE' /&gt;&lt;webctrl isleaf='1' tableRow='1' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='presentation' tag='TABLE' /&gt;&lt;webctrl isleaf='1' type='' tag='TD' class='' aaname='Procurement Foundation' check:innerText='Procurement Foundation' /&gt;" Guid="e2ab1f4b-7c8f-43b9-801d-0f40b9551c60" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIgAAAASCAYAAACAR5Z3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMQSURBVGhD7VnNahRBEBY8KCjowbcIeNhnWfawB8GX2MucREHRoB7E68g+gw+QJSIieDIvEJKbB4Vc9NR2109XdW1Nz7DZIJj+YCDd1fP1V19/05Dkxs2Xt0NDA+Pkx0l48ulpuHV4N6RstIA0uDj8+qYFpGEY6SZpAWmoYisgx91BmD20zyocU/064Lyfh1m3oVEJ3595WJ/SgivDWVgvDsKyP6PxEDahy3rwne4ICjvBD4gxp2bY/4jRgPwTL3YJyOUxKSDhaBVmiz6cs8hFNDB+OZhMnOOvqUxrEss1uoVO+7DUN1Lmxr2Zm43QX6yYQ19Gn7ikJmv1jTegj3R0ih9qSQ+NvSCMBaSqN3ujDnFIByHzLeKa5H3m1N7GBzTpXhO/2Rf24ro9A+SXd7E0KSAyRwJUHWp0wGiuf73lr3IkIJkrAt7hMTWHfKSj2JfNwxobWfSj9RFfsY74dr1B4D3uzdErB28DUtFh+Lwesca+6xtE74uB8vZh/wpvqUc/IHFx8TCRFbbVuKqDaP0lE+y8DUg23+6FdRybmuGUdWiK1QfjwtQIpWM0IMYf5pd9EdKP9ckGxNfh8emxQIdiICDWd70vBERquv9JN4jAa1SPVRNm0wwrdNAQ3Msehmu44RQe1Gc5oFbRsdsNgpr0AQqP55sOiKdjm6/wB/zVfY0EZOs81DrVe8IeA+KP3QNgmHkQUwmIcGuYWjUgbJbB3gNi9eu1nt6xgPh80pf2Rvc5EBC7j9ZwdQGh9UwOKdVCZW0OAgjjeeQbMkSHh/mwPjUgph+9tzVsDwGB95jT65Pew3XjAUE/Sz4vIAXfUEAK/5xzyz6X/V86ILn5uHl6iho1hTUxARtKc7GRXsTpg2WAHubIuqYHxOrL86MHo/cT1P0p9Ra9KC+W8bevfIg1HRHCt4pezTOneJj4NsoP7jfxez4J39Ce1YA0NGjkgKS/uzc0aBT/i3nx5RVNNzQgPnxfY0DS//3vvL4f3n17H37+/kXlhuuKiz8XEI57bx9gQJ59fg4/tKc99nn08XH4C0Gx42SdnDIfAAAAAElFTkSuQmCC" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='*' title='* - Oracle Applications' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="0" />
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Manage Procurement'" sap:VirtualizedContainerService.HintSize="1218,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="456ff9a9-d063-4d3f-8a50-19d7a50694f6" Version="V3">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="https://fa-ewqc-saasfaprod1.fa.ocs.oraclecloud.com/fscmUI/faces/FuseTaskListManagerTop?_adf.ctrl-state=154wtffqpf_130&amp;_adf.no-new-window-redirect=true&amp;_afrLoop=11687045990050731&amp;_afrFS=16&amp;_afrMT=screen&amp;_afrMFW=1920&amp;_afrMFH=945&amp;_afrMFDW=1920&amp;_afrMFDH=1080&amp;_afrMFC=8&amp;_afrMFCI=0&amp;_afrMFM=0&amp;_afrMFR=96&amp;_afrMFG=0&amp;_afrMFS=0&amp;_afrMFO=0" DesignTimeRectangle="781, 410, 155, 14" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Manage Procurement'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span&amp;gt;span&amp;gt;div&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table' idx='3' tableCol='227' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='A' class='*' aaname='Manage Procurement Agents' check:innerText='Manage Procurement Agents' /&gt;" Guid="f24dd3ba-23dc-418f-9a0f-e8eb9a9be45e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJ8AAAASCAYAAABFNQzmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANTSURBVGhD7VcxdioxDOQyex+OkTvwuMGvaNPRwRloaFLSp98L5ALxt2TLHsn2smzys7x8F/PCSrY8Go0Xshk/Pl1Hxxro5utYDd18Hauhm69jNWTzvV/c8PLHbXYX9wYLxo/R7Xc+/vLq9u8YfyIId4PhNNbX/0rc3PbOjI4Hr0sx3+/GfR4CY75XN+zMRor7GOWe23yW33wRfgfu9MtzPLutne+3Y7H5zm5/8kaDN8YbP190wetZvWG2V4hzg5JDEkQq79kcbjEe98X49kA14HbiWa1bWzVfeGMzN+ZFFwhqTNTlN0TMhd6gFq8BgePZA/d8dkfKc0xqxBiBeVzcPtX3OVir3tQNfsRt8Bql+pyTbydCffBhjiP/VdoT4Ky5+s/mobTQ3ArzHaNA4RAqRhtKsaUINyPrI1EcWGg0fE7iqhrBlGqP1FPrsB49AwynIsa8IM+5Gs/Yj5zB68g8YU3bfDaXn9VXXU0fMSfn4mfVj+YXLgauk3rAiXIKVENytC7uZyzTfx6PsEe04B5hfqX5cDPFmMhEY1RQiZsbq94yBtTD/QR4VsY2OVUvNh9uV4ZqGgWvncl5I1aCjRuNUBt7VtK1zPHbQ13IkJvqm4eeNEVeEzNKcwzPVENp0zjr6zxaegZUzJfJZfPoxvhgHLQQNI0o81EO98R6Uw1yTu0hwGAF1gAWNV54Zuqd+qyJdc98wKnokxDXGh6kY9N8RY08m/z1PM981XpxLkv1n88jaIp7Q7xhPiZw8L9NagVZXCiCghpxmXwyb2N4Zg8+5/2yr4EHzVd95p5aN9XE8bya+bA2wuQmzdfo+3HzWe0l9jX9l1wCe1bdfPwZnWrIpng4NBU0xVvm43giiDlTD4fsn6lhrJ9g1hWwAsf+1JlRZD5DBE919RrFn9eA+aq9xrzh0TKf7Qf7fnjoal6CsC/UWab/PB6GE3EBM9fNZwaii8ScJ8wDuMK+pvlkCGHfcLoB2bhP6p10jZwjWBEjjEgFDK8Uk7oqh/0BRz4jxNR//0q3cm2+ZB6GR9N8sjbVyPH20IW31oENAwMXFJdCuM7UfzaPxn5CNt+ToCVWx8/gJ/Vf33zqLeFh31Ad/xYr6v90b76O/wfdfB2roZuvYyV8ur8BOUB899rr8wAAAABJRU5ErkJggg==" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='*' title='Setup and Maintenance - Oracle Applications' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="776, 367, 575, 32" FriendlyName="'Task'" FullSelectorArgument="&lt;webctrl aaname=' Task Help Scope Predecessor Tasks Notes Actions' tableCol='227' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='TH' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname=' Task Help Scope Predecessor Tasks Notes Actions' tag='TABLE' /&gt;&lt;webctrl type='' tag='TH' class='*' aaname='' check:innerText='Task' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAkMAAAAkCAYAAACKVz5QAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG4SURBVHhe7dtNasJgGIXRbCfgigJuSLIawa04EXRSHHRQaBdgquYz5qctamgsfc+BC5JExw9JzCoAgMCaGFrv9mZmZmbh5s4QABCaGAIAQhNDAEBoYggACE0MAQChiSEAIDQxBACEJoYAgNDEEAAQmhgCAEL7MYZW86zKsm82X6Wr7rdd5OffKJbpAADAk9x4Z2hVFacAmpXVNh0ZQwwBAH+FGAIAQhsXQ8vi+tjstPajs01Z5e1zre92Yyj9dlYcPwEATOvxGEqxky/qI93A2VblrHV9iqbhtem6LK/KzfkUAMCkxj8m690d6sTQ+dgwdC4x1P0OAMD0Rt8ZusTO4D2g/iO01rl+DI35ZxoAwBgPx1A/fgYx1HL9i379XtDl2tNjs/qcx2QAwHOMjqH6PaB0/rg6hvrXd98h6obTF3edAAAmMuKdofZ7QccomhedF6rbgVTv+m+xe+4qAQD8phtjCADgfxJDAEBoYggACE0MAQChiSEAIDQxBACEJoYAgNDEEAAQmhgCAEITQwBAaGIIAAitiaH1bm9mZmYWYq9vH83nJoZe3g9mZmZm4SaGzMzMLPAO1SdbLsQ/ydGqLAAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Plus Icon'" sap:VirtualizedContainerService.HintSize="1218,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="456ff9a9-d063-4d3f-8a50-19d7a50694f6" Version="V3">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="https://fa-ewqc-saasfaprod1.fa.ocs.oraclecloud.com/fscmUI/faces/FuseTaskListManagerTop?_adf.ctrl-state=154wtffqpf_130&amp;_adf.no-new-window-redirect=true&amp;_afrLoop=11687045990050731&amp;_afrFS=16&amp;_afrMT=screen&amp;_afrMFW=1920&amp;_afrMFH=945&amp;_afrMFDW=1920&amp;_afrMFDH=1080&amp;_afrMFC=8&amp;_afrMFCI=0&amp;_afrMFM=0&amp;_afrMFR=96&amp;_afrMFG=0&amp;_afrMFS=0&amp;_afrMFO=0" DesignTimeRectangle="227, 455, 26, 26" DesignTimeScaleFactor="1" ElementType="Icon" FriendlyName="'IMG'" FullSelectorArgument="&lt;webctrl aria-role='presentation' class='xiz' tableCol='137' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='IMG' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='presentation' class='*' tag='TABLE' /&gt;&lt;webctrl type='' tag='IMG' class='*' aaname='Create' /&gt;" Guid="bf4244b7-474e-40a0-8c6d-49bf0512be6a" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABMSURBVEhL7dKxCgAgCITh3r6loTe2uRIUibPiPrjVf7FIEoZhGIZ5K1xbnxbBsMvf4TXinYXhjXbUM8u9z6VhOOKt8AkMwzAMkxQWGTpRgPSHE6JDAAAAAElFTkSuQmCC" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='*' title='*- Oracle Fusion Cloud Applications' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="0" />
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <ui:ReadRange AddHeaders="True" DataTable="[dt_Processing]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="1218,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" Range="A4" SheetName="Sheet1" WorkbookPath="Sharedpointrequest\CurrentExcelItem.xlsx" />
+                          <Assign sap:VirtualizedContainerService.HintSize="1218,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[RowCount]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[(dt_Processing.AsEnumerable().Count(Function(row) Not String.IsNullOrWhiteSpace(row("CONTEXTSHORTNAME").ToString))+4).ToString]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1218,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_8" Message="[&quot;Processing: &quot;+RowCount.ToString+&quot; items&quot;]" />
+                          <Assign DisplayName="Initialize Count" sap:VirtualizedContainerService.HintSize="1218,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Int32">[Count]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Int32">1</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <ueab:ExcelForEachRowX DisplayName="For Each Excel Row" EmptyRowBehavior="Stop" HasHeaders="True" sap:VirtualizedContainerService.HintSize="1218,4022.6666666666665" sap2010:WorkflowViewState.IdRef="ExcelForEachRowX_1" Range="[Excel.Sheet(&quot;Sheet1&quot;).Range(&quot;A4:C&quot;+RowCount)]" SaveAfterEachRow="False">
+                            <ueab:ExcelForEachRowX.Body>
+                              <ActivityAction x:TypeArguments="ue:CurrentRowQuickHandle, x:Int32">
+                                <ActivityAction.Argument1>
+                                  <DelegateInArgument x:TypeArguments="ue:CurrentRowQuickHandle" Name="CurrentRow" />
+                                </ActivityAction.Argument1>
+                                <ActivityAction.Argument2>
+                                  <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
+                                </ActivityAction.Argument2>
+                                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1184,3824.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <If Condition="[Not(String.IsNullOrWhiteSpace(CurrentRow.ByField(&quot;Status&quot;).ToString))]" sap:VirtualizedContainerService.HintSize="1122,3588.6666666666665" sap2010:WorkflowViewState.IdRef="If_2">
+                                    <If.Then>
+                                      <Sequence sap:VirtualizedContainerService.HintSize="300,81.33333333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </Sequence>
+                                    </If.Then>
+                                    <If.Else>
+                                      <Sequence sap:VirtualizedContainerService.HintSize="1088,3323.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                        <Sequence.Variables>
+                                          <Variable x:TypeArguments="x:String" Name="CleanName" />
+                                        </Sequence.Variables>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <uix:NSelectItem DisplayName="Select Item 'Manage Requisitions'" sap:VirtualizedContainerService.HintSize="1046,159.33333333333334" sap2010:WorkflowViewState.IdRef="NSelectItem_2" Item="View" ScopeIdentifier="456ff9a9-d063-4d3f-8a50-19d7a50694f6" Version="V3">
+                                          <uix:NSelectItem.Items>
+                                            <scg:List x:TypeArguments="x:String" Capacity="3">
+                                              <x:String>None</x:String>
+                                              <x:String>View</x:String>
+                                              <x:String>Full</x:String>
+                                            </scg:List>
+                                          </uix:NSelectItem.Items>
+                                          <uix:NSelectItem.Target>
+                                            <uix:TargetAnchorable BrowserURL="https://fa-ewqc-saasfaprod1.fa.ocs.oraclecloud.com/fscmUI/faces/FuseTaskListManagerTop?_adf.ctrl-state=81zi37txq_6&amp;_adf.no-new-window-redirect=true&amp;_adf.no-new-window-redirect=true&amp;_afrLoop=47779831584398696&amp;_afrWindowMode=2&amp;_afrWindowId=null&amp;_afrFS=16&amp;_afrMT=screen&amp;_afrMFW=2133&amp;_afrMFH=1050&amp;_afrMFDW=1920&amp;_afrMFDH=1080&amp;_afrMFC=8&amp;_afrMFCI=0&amp;_afrMFM=0&amp;_afrMFR=86&amp;_afrMFG=0&amp;_afrMFS=0&amp;_afrMFO=0" DesignTimeRectangle="546, 485, 1348, 25" DesignTimeScaleFactor="0.8999999761581421" ElementType="DropDown" FriendlyName="'None'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table' idx='3' tableCol='1' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='SELECT' class='x2h' aaname='Access to Other Agents&amp;apos; Documents' /&gt;" Guid="91d0330a-90f0-4719-815c-ba3f0d31bc00" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='rkrthi0w7' title='Manage Procurement Agents - Setup and Maintenance - Oracle Fusion Cloud Applications' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                                              <uix:TargetAnchorable.Anchors>
+                                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                  <uix:Target DesignTimeRectangle="26, 492, 101, 12" ElementType="Text" FriendlyName="'Manage Requisitions'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table' idx='3' tableCol='1' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='x2ey' aaname='Manage Requisitions' check:innerText='Manage Requisitions' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGkAAAAQCAYAAAAVr1EzAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIySURBVFhH7VfLjcJADKWnqSU5pIvcIqUNLrnSQU4UwDlXKqCBbQCv5uMZ2+NJ2N2wgDSHJyHj2M9+tgmH29cdKt4bB2moeD9UkT4AVaQPQBLpPIIxBsxwYQ7L1Dl7f84ffgmuJ2gsT4G9+bm6RS8SbnBsMecFetPB8Rp62J5gyfz/Bi5S20HDkngyz2jCr+FECk0JNtfQJzTnISh89oYQ6QTHgSS0BNoR+jg1d5gHOsEjzPFZ7+fspGGqP7WL+Li52lZHTrIpzqbENgaa6Rb80sCZYYzTzwVOW0E3idXgbLhJJKaNwTbJxpJ1+/j9gDWmOvIcqb5MpHnqYmGWaDNd2GrPcaPIyrtTiQk9uW3/QDycr2iPRdKTQqCIRBvNz5RoOsYmfDdFYgOA3xNulE/k77+nffR23xu0O2GKOVJ9mUiL2x5MJAgFX6p61nSludI/khP+bIsKU6X/JhUmMqCZFta0TIw1kdgG5px1kUSjowh0gLdyJOQioThnKhYlhMUWNuMB/1WRFJIMYpPk75GNncRA8MnOxFgVCWOk84Vnbj+RtByJvyJSOHMtVzkRKpypokgb/pkdi5ONpQXzc0BF99tITwcZAOXcMS7yDOIpiiJibbJGKRLnLs9dJpKaY0Mk1jj2kP/s1tK9ZAQiJZFK/nu/OOAEBv+fvDjQ6c1eKJjwlBOtMTxve0d7SOMqQ8NEUnOk+l7/Z1Zt+rMhztGb4zUiuc3Tpv2/UEWq2BlVpA/AN77rejHtjhZjAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                                                </scg:List>
+                                              </uix:TargetAnchorable.Anchors>
+                                            </uix:TargetAnchorable>
+                                          </uix:NSelectItem.Target>
+                                        </uix:NSelectItem>
+                                        <uix:NSelectItem DisplayName="Select Item 'Manage Purchase Orders'" sap:VirtualizedContainerService.HintSize="1046,159.33333333333334" sap2010:WorkflowViewState.IdRef="NSelectItem_3" Item="View" ScopeIdentifier="456ff9a9-d063-4d3f-8a50-19d7a50694f6" Version="V3">
+                                          <uix:NSelectItem.Items>
+                                            <scg:List x:TypeArguments="x:String" Capacity="4">
+                                              <x:String>None</x:String>
+                                              <x:String>View</x:String>
+                                              <x:String>Modify</x:String>
+                                              <x:String>Full</x:String>
+                                            </scg:List>
+                                          </uix:NSelectItem.Items>
+                                          <uix:NSelectItem.Target>
+                                            <uix:TargetAnchorable BrowserURL="https://fa-ewqc-saasfaprod1.fa.ocs.oraclecloud.com/fscmUI/faces/FuseTaskListManagerTop?_adf.ctrl-state=81zi37txq_6&amp;_adf.no-new-window-redirect=true&amp;_adf.no-new-window-redirect=true&amp;_afrLoop=47779831584398696&amp;_afrWindowMode=2&amp;_afrWindowId=null&amp;_afrFS=16&amp;_afrMT=screen&amp;_afrMFW=2133&amp;_afrMFH=1050&amp;_afrMFDW=1920&amp;_afrMFDH=1080&amp;_afrMFC=8&amp;_afrMFCI=0&amp;_afrMFM=0&amp;_afrMFR=86&amp;_afrMFG=0&amp;_afrMFS=0&amp;_afrMFO=0" DesignTimeRectangle="546, 526, 1348, 25" DesignTimeScaleFactor="0.8999999761581421" ElementType="DropDown" FriendlyName="'None'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table' idx='3' tableCol='1' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='SELECT' class='x2h' aaname='Access to Other Agents&amp;apos; Documents' /&gt;" Guid="4b67f9a9-4d5b-4da0-b5fd-4abc55319aae" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='rkrthi0w7' title='Manage Procurement Agents - Setup and Maintenance - Oracle Fusion Cloud Applications' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                                              <uix:TargetAnchorable.Anchors>
+                                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                  <uix:Target DesignTimeRectangle="26, 532, 124, 12" ElementType="Text" FriendlyName="'Manage Purchase Orders'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table' idx='3' tableCol='1' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='x2ey' aaname='Manage Purchase Orders' check:innerText='Manage Purchase Orders' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIAAAAAQCAYAAADeWHeIAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJwSURBVGhD7VjRbcUgDOxOmSasgjJMxCSRmORJmYMKY4JtTJK+9iWVwknvxzXmOM4m6lfoeDS+ZKDjWegGeDi6AR6OYoDFhmEYwjB5lrDOBuJ2YeH78HLBRJ7sZwNn/Q58sFeeU55D6N5EvKfRhVXG3wQ3wGiCYcXX4MZE8DJhjgDCmeBeJeSnHwjYxIUGwMsve6HOZ87wWQO44CYibiQ62mDHQhbElp0Ha1MexAlBNZ/GRf08cZpdoRigiMIvEWpBjRg3wU6xduRQjD1stXDthJOQ7pGnI/5ULTauqU5Vg0A1LD0X1TPmkWkB/DZ9tb3S2dI5UkznmVAZwM8mmDmVjwKa2aeCcGgfvHAtxEEgIeRhPpqBdgNzN8mnUAxQBN0zwMDOte0jzJMFopfklyLaVhN4ZEMng7mX4Kx2a8rJXGS81pPnAy+o2dpLTBOVJ67RDLBC1+dCyqGE86sLlcSUfN4BJZ91f8Ox1dsJP3rAtgFyPO5fX0BrLYJOAYiTKaJ2f/7JKXDWALRBxDSihq32kvU1ngW1AfLFL9QISAzFT8UbhE/k7xpAIckgBWFoXeJvDIACYifXHMtF2KXuMA2nnoBTBtD2kgbIoDxLVDEAjv6RC1AutDG6mwY4yK/i+ujbIAVhoGvw4hQDVE8AcFFy5PlpzW1Slrhd6J5SFwJ6ZsDeOq6DfALqNUI3lWf6U4RqAE5QESA6CT4YcSOF8G4+fRb+4iOQoKzHjz7FABHyWZI5tNNpTTfzRqm50tHc5lk9F/Ss0jh4H8D15EcgbRydZ8L9/wg6uNCOz+IeA4DDi/urMd9xGe4xQMe/QTfAw/ENqHqrADHMY+YAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                                                </scg:List>
+                                              </uix:TargetAnchorable.Anchors>
+                                            </uix:TargetAnchorable>
+                                          </uix:NSelectItem.Target>
+                                        </uix:NSelectItem>
+                                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Double" DeselectAfter="True" DisplayName="Type Into 'Procurement BU'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1046,260.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="456ff9a9-d063-4d3f-8a50-19d7a50694f6" Text="[CurrentRow.ByField(&quot;CONTEXTSHORTNAME&quot;).ToString]" Version="V3">
+                                          <uix:NTypeInto.Target>
+                                            <uix:TargetAnchorable BrowserURL="https://fa-ewqc-saasfaprod1.fa.ocs.oraclecloud.com/fscmUI/faces/FuseTaskListManagerTop?_adf.ctrl-state=154wtffqpf_130&amp;_adf.no-new-window-redirect=true&amp;_afrLoop=11687045990050731&amp;_afrFS=16&amp;_afrMT=screen&amp;_afrMFW=1920&amp;_afrMFH=945&amp;_afrMFDW=1920&amp;_afrMFDH=1080&amp;_afrMFC=8&amp;_afrMFCI=0&amp;_afrMFM=0&amp;_afrMFR=96&amp;_afrMFG=0&amp;_afrMFS=0&amp;_afrMFO=0" DesignTimeRectangle="669, 261, 217, 28" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl aria-role='presentation' css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table' tableCol='2' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='presentation' tag='TABLE' /&gt;&lt;webctrl type='text' tag='INPUT' class='x2c' aaname=' Procurement BU' /&gt;" Guid="5fa599bb-d191-4e7c-b97c-003bc7d964ab" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAN0AAAAgCAYAAACWyH3dAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACzSURBVHhe7dwhbkJRFEVRZl6PxpLKSphAFYOobNIp8EEBr/nmKSRstU6y3LXb3s0ws3SiM4s3ozt+n8Z2/zU+dp/AG83o1uB+fv/G7f4A3mhGtxb47AB4LdFBTHQQEx3ERAcx0UFMdBATHcREBzHRQei8XEUHpfNyER3URAcx0UFMdBATHcREBzHRQUx0EBMdxEQHMdFBTHQQEx3EZnSezUJjRnfwVh0SMzozayY6s3Rj/AOOozt29AAIIwAAAABJRU5ErkJggg==" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='*' title='*- Oracle Fusion Cloud Applications' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                                              <uix:TargetAnchorable.Anchors>
+                                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                  <uix:Target DesignTimeRectangle="568, 268, 95, 14" ElementType="Text" FriendlyName="'Procurement BU'" FullSelectorArgument="&lt;webctrl aria-role='presentation' css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table' tableCol='1' tableRow='1' tag='TABLE' /&gt;&lt;webctrl class='af_query_criterion::label-text' tableRow='1' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='presentation' tag='TABLE' /&gt;&lt;webctrl class='af_query_criterion::label-text' type='' tag='LABEL' aaname='Procurement BU' check:innerText='Procurement BU' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGMAAAASCAYAAABPRWDxAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHXSURBVFhH7VWBjcMgDPwNM0jUTcIgySDJIBmEB2yDbaykfFs9UjkJfYJtfL4j/R8/0A2GGR1hmNERhhkdQZixL5OfJrUemz8x/r04/fZwfsc3jnOda83CmteiGugq6609wwyWcLjq4G+EJRwBzJj9xiTSe+8xI92IsJe+Dnp23sW/1Ozc/MxuhDugEoA1FF/wZDSZciV5u4+4gflrLfy2xB3zD8aJeibs3tF+WJkr8VlLHV1AefOLwATLDD3f58zgjdEISbzE03kkHCf4jBm8j8hHQZPIKjdfDJiBhIQ6PgvFsA7PJ+O0DpZwBMsMyC97Vr211/AzJYeJqIlwoeDZ/Il7xgzWR/NK7/yC5FzeP4D3UReH3lNMzFnPZQlHgNwYl4vPbdVbe/f/wPNnfi9S2Cli6OE5mszAd+KTV+zbYAY+65X4XfKxhSPo3ATqhTxeMMNuWotkEam/jGImQ5MZV7wazPjz5bjWxTRD8YCcD5uhB7wcgueKOjz3wgwpFh+0wQyVK7i+2ww8Lxuv3zVPxGtmRKCwsVlFimoozppDL6hxCx/I7gNDY02OtZgRgXFcef/GDIrLswCCF19K6CpP6xggzBj4XwwzOsIwoyMMMzrCMKMbeP8Lw70qDXhLQQAAAAAASUVORK5CYII=" SearchSteps="FuzzySelector" />
+                                                </scg:List>
+                                              </uix:TargetAnchorable.Anchors>
+                                            </uix:TargetAnchorable>
+                                          </uix:NTypeInto.Target>
+                                          <uix:NTypeInto.VerifyOptions>
+                                            <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" ExpectedText="[CurrentRow.ByField(&quot;CONTEXTSHORTNAME&quot;).ToString]" Mode="Appears" Retry="True">
+                                              <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                <InArgument x:TypeArguments="x:Double" />
+                                              </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                            </uix:VerifyExecutionTypeIntoOptions>
+                                          </uix:NTypeInto.VerifyOptions>
+                                        </uix:NTypeInto>
+                                        <Assign sap:VirtualizedContainerService.HintSize="1046,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:String">[CleanName]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(CurrentRow.ByField("Users name (Last name, Firstname)").ToString, "（.*?）", "").Trim]</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Search Agent'" sap:VirtualizedContainerService.HintSize="1046,197.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="456ff9a9-d063-4d3f-8a50-19d7a50694f6" Version="V3">
+                                          <uix:NClick.Target>
+                                            <uix:TargetAnchorable BrowserURL="https://fa-ewqc-dev4-saasfaprod1.fa.ocs.oraclecloud.com/fscmUI/faces/FuseTaskListManagerTop?_adf.ctrl-state=1aix0saelb_1&amp;_adf.no-new-window-redirect=true&amp;_afrLoop=18203473145956008&amp;_afrWindowMode=2&amp;_afrWindowId=null&amp;_afrFS=16&amp;_afrMT=screen&amp;_afrMFW=1920&amp;_afrMFH=945&amp;_afrMFDW=1920&amp;_afrMFDH=1080&amp;_afrMFC=8&amp;_afrMFCI=0&amp;_afrMFM=0&amp;_afrMFR=96&amp;_afrMFG=0&amp;_afrMFS=0&amp;_afrMFO=0" CvType="Button" DesignTimeRectangle="996, 264, 24, 28" DesignTimeScaleFactor="1" FriendlyName="'A'" FullSelectorArgument="&lt;webctrl aaname='  Name Email Department Job Phone Location' aria-role='presentation' css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table' tableRow='1' tag='TABLE' /&gt;&lt;webctrl aaname='Search: Agent' tableRow='3' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='  Name Email Department Job Phone Location' aria-role='presentation' tag='TABLE' /&gt;&lt;webctrl aaname='Search: Agent' type='' tag='A' class='x1o0' /&gt;" Guid="ba1df607-a6af-4008-a046-34802312e4c9" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABwAAAAgCAYAAAABtRhCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGSSURBVEhL7ZfdSgJBFMd9BK/y3fYR7CG6LMpKc01E/IA2NU3REoqiQIyKQlZtye4iicqKIt3yg+rE2WjNmXb83KULB3438589P2Z3Bs6awOBh4jgORFEk53UbJrPZDBMWC0zxAV2Y9YUhuZdtC63WSUDp+8enLpQuy4pUFd5V7nUVIrhTVYgTY+Gw/E9h/kyC4GoEbA4eFp1uiMZTcFW+ptb1QldhKr0N0zY7xcy8A3L5IlWwG0zhSU5Uii8sLUNBOod6owkvVRky2UNVenNboYqyYArdXr9SWCpdUA/u7meULL21Q2UsNIU1+U0piN+MfAjBnWHuDQpUxoIhfP0W8myhfyVEZSw0hYihrxRRD43T3T40NRkyB0fqae33ejCFiNa1+CEcS0Cj2aIKa9FViIhFCQJCBObsPNhdHlhPboIQiQ0k7Un4F/VGC0Jr8b6lAwsRUhpNbFBrSIYSIr+lLo+PykmGFiIoPT7NwcPjE5WRjETYD2PhyOkQGt4m6t0IP1flzkYYZYa2+ob/zJATeo8vfYvSSvzxZVoAAAAASUVORK5CYII=" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='wojjdlpy3' title='Manage Procurement Agents - Setup and Maintenance - Oracle Fusion Cloud Applications' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                                              <uix:TargetAnchorable.Anchors>
+                                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                  <uix:Target CvTextArgument="* Agent" CvType="Text" DesignTimeRectangle="738, 271, 34, 14" ElementType="Text" FriendlyName="'Agent'" FullSelectorArgument="&lt;webctrl aaname='  Name Email Department Job Phone Location' aria-role='presentation' css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='  Name Email Department Job Phone Location' aria-role='presentation' tag='TABLE' /&gt;&lt;webctrl type='' tag='LABEL' class='af_inputListOfValues_label-text' aaname='Agent' check:innerText='Agent' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACYAAAASCAYAAAA31qwVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAECSURBVEhL7ZTtDYQgDIbdkEGIm9hBZBAdhEF6QdrQFu+U8yP+8E2ISmn70CIdPlSdnXiKXrBWrYBNCM6hcw5htraLFAP6YVJTNdgMC9QyzOJrRIXYApuGBAUI9LRo2Z6GRxj88gyRjHJT0pfmYQzoye7H5BQx9LzeoesDcigDJug5mGwnzemgBJbaYW2ciIGpKrx5+tpRMQVTO+SApUJxLBWT78VGydWG7No6T5IC0zvZ/pYJSovloOSm+m1g1Io6eNlpS8WUjoDlxfaKICdzVjIoXyv7z9gfYHyQv/2FpRKH/spVMBmz+FTXxU+ZBPbMnak2MHvvVK0/T41g9+kFa9UHHyuU7CBsvmUAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image, CV" />
+                                                </scg:List>
+                                              </uix:TargetAnchorable.Anchors>
+                                            </uix:TargetAnchorable>
+                                          </uix:NClick.Target>
+                                          <uix:NClick.VerifyOptions>
+                                            <uix:VerifyExecutionOptions DisplayName="Label 'Name'" Mode="Appears" Retry="True">
+                                              <uix:VerifyExecutionOptions.Target>
+                                                <uix:TargetAnchorable BrowserURL="https://fa-ewqc-saasfaprod1.fa.ocs.oraclecloud.com/fscmUI/faces/FuseTaskListManagerTop?_afrLoop=23116854345260434&amp;_afrWindowMode=0&amp;_afrWindowId=17ujzs3ii0&amp;_adf.ctrl-state=8kf5w9kqk_1&amp;_afrFS=16&amp;_afrMT=screen&amp;_afrMFW=2133&amp;_afrMFH=1050&amp;_afrMFDW=1920&amp;_afrMFDH=1080&amp;_afrMFC=8&amp;_afrMFCI=0&amp;_afrMFM=0&amp;_afrMFR=86&amp;_afrMFG=0&amp;_afrMFS=0&amp;_afrMFO=0" CvTextArgument="Name" CvType="Text" DesignTimeRectangle="501, 467, 29, 12" DesignTimeScaleFactor="0.8999999761581421" ElementType="Text" FriendlyName="'Name'" FullSelectorArgument="&lt;webctrl aria-role='presentation' css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table' tableCol='1' tableRow='1' tag='TABLE' /&gt;&lt;webctrl class='af_query_criterion::label-text' tableRow='1' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='presentation' tag='TABLE' /&gt;&lt;webctrl class='af_query_criterion::label-text' type='' tag='LABEL' aaname='Name' check:innerText='Name' /&gt;" Guid="b12aa2dd-4ec9-4c2f-9bfd-2c3480f2f6c1" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACEAAAAQCAYAAACYwhZnAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADfSURBVEhL7ZLBEYUwCETtkEIYOzGFmEK0kBSCE8JGTHTGf/ijB/cWQtgXYJAXaGgDT+iDgBzEIoFIaIySEJlIiIIse9Jf1EMQCc8F41EIGB8hksQR9yQ0WXRmzQmaW/Kjxso5rFY+ReGmPtRB8BQ0OXfDQ6gZRrUGIWKJCRBmBiMFNGh9U2oDSOu6sfcQ1ZyF9eeO+vAbD2E5dn8YZzZTaNfFphunEGetA1g27jtxD6KOptE5RJ01IHxrcfcDBPbNj8l2KusSYl9UM/AtHVnN8s/uQTTvrxfzOX0Q0CsgNlj0X9wr+o2zAAAAAElFTkSuQmCC" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='mnrkpjbkl' title='Manage Procurement Agents - Setup and Maintenance - Oracle Fusion Cloud Applications' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                                                  <uix:TargetAnchorable.Anchors>
+                                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="0" />
+                                                  </uix:TargetAnchorable.Anchors>
+                                                </uix:TargetAnchorable>
+                                              </uix:VerifyExecutionOptions.Target>
+                                              <uix:VerifyExecutionOptions.Timeout>
+                                                <InArgument x:TypeArguments="x:Double" />
+                                              </uix:VerifyExecutionOptions.Timeout>
+                                            </uix:VerifyExecutionOptions>
+                                          </uix:NClick.VerifyOptions>
+                                        </uix:NClick>
+                                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Double" DelayBefore="3" DeselectAfter="True" DisplayName="Type Into 'Name'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1046,260.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="456ff9a9-d063-4d3f-8a50-19d7a50694f6" Text="[CleanName]" Version="V3">
+                                          <uix:NTypeInto.Target>
+                                            <uix:TargetAnchorable BrowserURL="https://fa-ewqc-dev4-saasfaprod1.fa.ocs.oraclecloud.com/fscmUI/faces/FuseTaskListManagerTop?_adf.ctrl-state=1aix0saelb_1&amp;_adf.no-new-window-redirect=true&amp;_afrLoop=18203473145956008&amp;_afrWindowMode=2&amp;_afrWindowId=null&amp;_afrFS=16&amp;_afrMT=screen&amp;_afrMFW=1920&amp;_afrMFH=945&amp;_afrMFDW=1920&amp;_afrMFDH=1080&amp;_afrMFC=8&amp;_afrMFCI=0&amp;_afrMFM=0&amp;_afrMFR=96&amp;_afrMFG=0&amp;_afrMFS=0&amp;_afrMFO=0" CvElementArea="486, 448, 219, 30" CvTextArea="492, 457, 81, 13" CvTextArgument="Maschino, Lisa" CvType="InputBox" DesignTimeRectangle="487, 449, 218, 28" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'Maschino, Lisa'" FullSelectorArgument="&lt;webctrl aria-role='presentation' css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table' tableCol='2' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='presentation' tag='TABLE' /&gt;&lt;webctrl type='text' tag='INPUT' class='x25' aaname=' Name' /&gt;" Guid="a6506fe5-86a9-4a9f-ad4e-9589acf15e75" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAN4AAAAgCAYAAAB9/8beAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKLSURBVHhe7ZzNbtpAEIDzTn4a8yiA1HvPvVaFXPoaKL7nmENPEYpUqc/QZKuxd72zg5eAf1ipfCN9BxZ7bNB8njFIfnAEQdw8HuwCQRDLRy/e88sv9/X7T/fl2w8AmBlxSxw7EU/eOP7+4/6+fwDAzIhb4tiJeGKl3RgA5kMcQzyAG4N4AAVAPIACIB5AARAPoACIB1AAxAMowJXivbl9XbmqWrn9a/recbdyVVW5evc2sN8EDhtX1Y/uaNffP9zTdoHjeSR3tW1O1s+dD8CljBKvrlem4GV95Wp5b24RChV6VjyAGRgl3nr36Gotw2v3ep90oMatK+mOnr6IQ9fsSESVPGH7kN+LJ7m7fTbuyW8fO54/r+1m4Hg+h837CVnx9IVAn28yBaSf8dJjwv0wTryDSBULTcZMEcCK0EvVFmi3fTuS9gUteYJIac4+l5dmfYjHD/vb4yWyhlxejqH9z/G5eOG7UOvqvNLPqLYDGC9eV1yxmLsiz99zRalS8RS5kbKVKHY5vb8VL+22Xjyb1+TLcbV4WS7dDu6J0eL1V/i2o3SFnIinxzszirVF7ddDQbZC5cRT6+fEi8VtRLdj8SziheOcjsDpCJp+TgBhvHh+TNwPimDHq3SMjJzpTIGJ4tn95+t4uXXbfe25AUwSL3Yu/XpIvO6vhqFxVN3jqfvAPrcU/lTxFrvHMxeTMAFY8XznRzzQTBKvE2roV8b4v55Q7xrTKTMjmB5P9Q8lU8TL5TW5LHoc7rEXAp1Xd1G9vm3MxQbgavH+Nxq3zogHsCT3Ld5hwwgIRbhv8QAKgXgABUA8gAIgHkABEA+gAIPi8UBbgOXIPtCWR7gDLEf2Ee4EQdwuEI8gCsQ/gBSZbsCW9ykAAAAASUVORK5CYII=" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='wojjdlpy3' title='Manage Procurement Agents - Setup and Maintenance - Oracle Fusion Cloud Applications' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                                              <uix:TargetAnchorable.Anchors>
+                                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                  <uix:Target CvTextArgument="Name" CvType="Text" DesignTimeRectangle="448, 456, 33, 14" ElementType="Text" FriendlyName="'Name'" FullSelectorArgument="&lt;webctrl aria-role='presentation' css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table' tableCol='1' tableRow='1' tag='TABLE' /&gt;&lt;webctrl class='af_query_criterion::label-text' tableRow='1' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='presentation' tag='TABLE' /&gt;&lt;webctrl class='af_query_criterion::label-text' type='' tag='LABEL' aaname='Name' check:innerText='Name' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACUAAAASCAYAAADc4RcWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADvSURBVEhL7ZPrDYUgDIXdsIM0biKDyCA4CIOcG3mVAtfoTW7CD09CYkofX1tcMKGW1jCDXqi7UlB+ZxARePeNjWHF9HcNoYgMnLJNAUWgLWK1UMqnszPsbso97w52zb7SKOAru97MqQEUg0NALKigvAWX5A7mTLpahCu1eilqjhwnjbqtgjxiE8EvaQhlD0nSTkr8UqcKSvxU4dxAgKq/5a6e1hiqTIjAa1UsdRVB0jSeQuWptadAXkCVROFEmy70I1Q3qV4XUPWaBu9LTa2P/Q7165sq680Pdjy9+EPE5G3sFdSjv28WvVB39ULd1QdFGlVw1oIJ1wAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image, CV" />
+                                                </scg:List>
+                                              </uix:TargetAnchorable.Anchors>
+                                            </uix:TargetAnchorable>
+                                          </uix:NTypeInto.Target>
+                                          <uix:NTypeInto.VerifyOptions>
+                                            <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" ExpectedText="[CleanName]" Mode="Appears" Retry="True">
+                                              <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                <InArgument x:TypeArguments="x:Double" />
+                                              </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                            </uix:VerifyExecutionTypeIntoOptions>
+                                          </uix:NTypeInto.VerifyOptions>
+                                        </uix:NTypeInto>
+                                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Search'" sap:VirtualizedContainerService.HintSize="1046,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="456ff9a9-d063-4d3f-8a50-19d7a50694f6" Version="V3">
+                                          <uix:NClick.Target>
+                                            <uix:TargetAnchorable BrowserURL="https://fa-ewqc-dev4-saasfaprod1.fa.ocs.oraclecloud.com/fscmUI/faces/FuseTaskListManagerTop?_adf.ctrl-state=1aix0saelb_1&amp;_adf.no-new-window-redirect=true&amp;_afrLoop=18203473145956008&amp;_afrWindowMode=2&amp;_afrWindowId=null&amp;_afrFS=16&amp;_afrMT=screen&amp;_afrMFW=1920&amp;_afrMFH=945&amp;_afrMFDW=1920&amp;_afrMFDH=1080&amp;_afrMFC=8&amp;_afrMFCI=0&amp;_afrMFM=0&amp;_afrMFR=96&amp;_afrMFG=0&amp;_afrMFS=0&amp;_afrMFO=0" CvElementArea="1465, 637, 56, 30" CvTextArea="1473, 645, 40, 12" CvTextArgument="Search" CvType="Button" DesignTimeRectangle="1466, 638, 54, 28" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Search'" FullSelectorArgument="&lt;webctrl aria-role='presentation' css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table' tableCol='1' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='presentation' tag='TABLE' /&gt;&lt;webctrl type='' tag='BUTTON' class='xhv p_AFTextOnly' aaname='Search' check:innerText='Search' /&gt;" Guid="7444a831-e258-4365-98d8-72abda2a68cb" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADoAAAAgCAYAAABD9mvVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAK2SURBVFhH5ZnNbtNAEMf3ZWLVj0OcmjfhBkmbOydeAJo0aS+IEyfEhUs+XLhzQipxYsdO3CIBp0GzH/Z4vWsQgoO3lv6ajmdmd38zW6lyGTyQh+kvXH1qoK/fLeDpixk8ef6q00IGZKFPCYqB2dsPkB0L+P7jZ6eFDMhCYUtQ7EKcZlDcf3NCyIJMDVAc+eHuHo5EXfeRyQxaiGS0vFD5aqGOxa2g+bGA/HhHRPxC8zsQ/wNQN6wVNDscITsURN32raB7meiKtYKm2QHSvEXZNQSMAVN6fK3FDTX/Kr4eg8cYeGefmjFL/e9BLXYWMmD+GKLsANGZx2GDy2bef7EU1BQ3WCvobp9DkuWQGO1HGPk4SQ9GK1P8Cvpk2sG0iq9HoilCpH46ELmhsCy8IvtI4TtcZz2GHoKGAw5c5Vf76OdvBVXC5LqtHwBBqriM+WNY7XNYcTAJtMIDDuCS58lm+GNYoy9BFQyuN5W3hsb72DS+TrWHaJ7Yg56Tnt8Kuk2zdi3PxWZK/jksyfve8KaW159Utcshmaqqm0iQMm/OG1GuY9o7nAu/UdvU34Ny3cCQTJYfSm6qqxbjcLLWBqo3jEqP6bUGWUHjZM//GEaLia0+6XC8UIeIGvkTvIosgCn3IwF6IkDji0Ac9kLli4myUzE1034Iyn0CajxfK6jshNFSMK3DsTapBb+mHgyX6sqKn+PadCtfTQXX5b+jbCAaQ6dY268+UeN520A32JFk37BKGzmBUqdzEp/DIxLDKYl6OSUuD3onYsITsh7mVvtF8IznaHuQW8PztFrTua2gFMoFWUE3u5R3wxVrB8Ukh2QF/bpLS2FXuu63gqoCF6wddJvwpFId9+2gtMgBGUHx0+DnL7dwu02cELIYP3fix96Xb947AYsMyGL8gK1gnf+XhOvPgwH9BZ5mczxkA6JdAAAAAElFTkSuQmCC" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='wojjdlpy3' title='Manage Procurement Agents - Setup and Maintenance - Oracle Fusion Cloud Applications' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                                              <uix:TargetAnchorable.Anchors>
+                                                <scg:List x:TypeArguments="uix:ITarget" Capacity="0" />
+                                              </uix:TargetAnchorable.Anchors>
+                                            </uix:TargetAnchorable>
+                                          </uix:NClick.Target>
+                                        </uix:NClick>
+                                        <uix:NCheckState DisplayName="Check App State 'Agent Name'" sap:VirtualizedContainerService.HintSize="1046,1674" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="456ff9a9-d063-4d3f-8a50-19d7a50694f6" Version="V3">
+                                          <uix:NCheckState.IfExists>
+                                            <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="496,1452.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Processing: &quot;+Count.toString+&quot;/&quot;+(Cint(RowCount)-4).ToString]" />
+                                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_6" Message="[&quot;Processing: &quot;+CurrentRow.ByField(&quot;CONTEXTSHORTNAME&quot;).ToString+&quot; &quot;+CurrentRow.ByField(&quot;Users name (Last name, Firstname)&quot;).ToString]" />
+                                              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Agent'" sap:VirtualizedContainerService.HintSize="434,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="456ff9a9-d063-4d3f-8a50-19d7a50694f6" Version="V3">
+                                                <uix:NClick.Target>
+                                                  <uix:TargetAnchorable BrowserURL="https://fa-ewqc-dev4-saasfaprod1.fa.ocs.oraclecloud.com/fscmUI/faces/FuseTaskListManagerTop?_adf.ctrl-state=1aix0saelb_1&amp;_adf.no-new-window-redirect=true&amp;_afrLoop=18203473145956008&amp;_afrWindowMode=2&amp;_afrWindowId=null&amp;_afrFS=16&amp;_afrMT=screen&amp;_afrMFW=1920&amp;_afrMFH=945&amp;_afrMFDW=1920&amp;_afrMFDH=1080&amp;_afrMFC=8&amp;_afrMFCI=0&amp;_afrMFM=0&amp;_afrMFR=96&amp;_afrMFG=0&amp;_afrMFS=0&amp;_afrMFO=0" CvTextArgument="Robin, Miguel Angelo" CvType="Text" DesignTimeRectangle="381, 692, 139, 14" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Robin, Miguel Angelo'" FullSelectorArgument="[string.Format(&quot;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;table' tableCol='2' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='SPAN' aaname='*{0}*' /&gt;&quot;, CleanName)]" FuzzySelectorArgument="[string.Format(&quot;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='x2ey' aaname='*{0}*' check:innerText='*{0}*' /&gt;&quot;, CleanName)]" Guid="92dea40c-2256-44ae-ad1a-4170b7a6ace9" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHUAAAASCAYAAABl9ZFeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKsSURBVGhD7ZjBjfJADIW3JyqgASgACqAA7ty5UwB3muBCCXCGK2fOWT2kDz2MZ8j/AxIb5UnRJuOx/eznCdH+ND06h5+40OPvoxe1g+hF7SBuop7P52Y8HjeDweDums1mzeVyufcKkF37ttttNDX7/b6ZTqfX+P8D+Q+Hwwce5JRNe17NU4Pqivkdi8Wian8H/qW+B1FdGBq3Xq9vaxlqor4KFTMajZrJZHK993Wtyebrn0BNVOWWTdcnebxNVEGCahKB7PEUI+pqtbqeHNkYBCcjX93r0h5OWQ34L5fLu+HSvdZky06q7OSYz+fXGuLwaS/+5IK/ekGsmqjKw+V9go/86Jf3NuMHdI9P1kch0wFURY0nlaK1B5s3i0ZoHycoikpx7l8D/pvN5m6I1AiGJObx/NT1TNRYv79SS6LCA3/toen0it55vBI/Qft9H/2O9WU6gAdRUZ8rnlIvTs/yOZ1Od+IL8tNzFNVPQJzuDPgfDodb07SmZh6Px1TUGJfnmqiRW+SdiQoP1pWD2C6c4DGe8WvTx0wHuD+IWiIl+BSxR4kQFV+hDZlYXAb3p2n4uShxX61pJVHjQPPzEHl73OhDXucjeIxn/LKYHq+kw1NRSVb7bWFC4kn1iXunqPLXyUCYkqgxbmxaNriRmyOzZf0q8Ykx2vJzxD5kOrQS1cURFDh7l3NPIm9WjUwsLoP7w5ECSk30/Pg4T3IqP6cx1u8DHXkLsZFCaZjZn/XH+ZGXfdhivJIOoCqqoGf/StUzrwWSE9i/fonTVlT9ZXgc7h8LKIkqKJZ4qCZ9JeNDQ2Tzr+doizVHURUvG0iGYbfbFUVlX8ZP0H2b13nUAXzNf5REWl+474afnm/EJ/h9jagSlJPxKnyKfdq/BZ/m9zWi9ngfelE7iF7UDuIX7rOu1OTM44QAAAAASUVORK5CYII=" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='wojjdlpy3' title='Manage Procurement Agents - Setup and Maintenance - Oracle Fusion Cloud Applications' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                                                    <uix:TargetAnchorable.Anchors>
+                                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="0" />
+                                                    </uix:TargetAnchorable.Anchors>
+                                                  </uix:TargetAnchorable>
+                                                </uix:NClick.Target>
+                                              </uix:NClick>
+                                              <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="4" DisplayName="Click 'OK'" sap:VirtualizedContainerService.HintSize="434,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="456ff9a9-d063-4d3f-8a50-19d7a50694f6" Version="V3">
+                                                <uix:NClick.Target>
+                                                  <uix:TargetAnchorable BrowserURL="https://fa-ewqc-dev4-saasfaprod1.fa.ocs.oraclecloud.com/fscmUI/faces/FuseTaskListManagerTop?_adf.ctrl-state=1aix0saelb_1&amp;_adf.no-new-window-redirect=true&amp;_afrLoop=18203473145956008&amp;_afrWindowMode=2&amp;_afrWindowId=null&amp;_afrFS=16&amp;_afrMT=screen&amp;_afrMFW=1920&amp;_afrMFH=945&amp;_afrMFDW=1920&amp;_afrMFDH=1080&amp;_afrMFC=8&amp;_afrMFCI=0&amp;_afrMFM=0&amp;_afrMFR=96&amp;_afrMFG=0&amp;_afrMFS=0&amp;_afrMFO=0" CvElementArea="1480, 776, 37, 30" CvTextArea="1489, 784, 19, 12" CvTextArgument="OK" CvType="Button" DesignTimeRectangle="1481, 777, 35, 28" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'OK'" FullSelectorArgument="&lt;webctrl tableRow='40' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='button' tag='BUTTON' class='xux p_AFTextOnly' aaname='OK' check:innerText='OK' /&gt;" Guid="79044e82-9340-45d0-8923-54e975fdaf9c" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACcAAAAgCAYAAACRpmGNAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIkSURBVFhH1Zi9TsMwEMfzMq3o6/SLN2FDqQgzEy8AtBC6ICYmxMJS2gI7LEgFmq82FIaW5dDZTuI4sQtD42Dpr/PdOb6fL61U14ASD0MMlGmk4C6uB7B7eAY7B8eFC+tifX7EcJiwr25hFi5guVrBcvVdqMW6WJ8HjOGQ/M31IVx8Mn1x82J8rI8cGThsbXqxHiFHLtz8Y8HpU/BFbSb/Szg9ksIF8w8IQk4a/PVwGq0Uzp+F4M9DrVYNx8kT/Ej2tgGGwWm7z+X70GCx+PnRPlTJ2hbYa/aXwrnBfI0eoVPDIk04jWMMpmbBiPfbfZofWQysCp2RuF9Wf4Cbpf1ek3Sq0RPyqTgPd07nUjBhfxWc48+U6rVZoaGQG1pQMQyodB7A8c+hTuAs1uWc9Qop4IL0Yi/tU7gm9DL5CMhO5rxqFgzJOvX+mJfCvbs+TL1Aarst2glzIOQHe7Rz5himnh3D1U98uDOrZF4x7zP75VkpHC5Qqks/W/WuKs7g2jbLR7BVMO9y9hQkhUNytcZgbiXdIzHWNWNrDwZkDYNp2clzJw36evmYRGo41l6Vpa+XExaN80nnkufGYJIvB+2uuB9vpXD4eyolx8vGNpxXwiG9TiuHw5NolhqOnYAo8kW7wbwU7tXxtOt/wk2mLrxOXWodT4ufC4dXsueXSfok7KGifKyfezXEy+zR5Q08vUzICYoW1sX6uZfqCLCUf0eUcZQa7gc6YVku5tcQNQAAAABJRU5ErkJggg==" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='wojjdlpy3' title='Manage Procurement Agents - Setup and Maintenance - Oracle Fusion Cloud Applications' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                                                    <uix:TargetAnchorable.Anchors>
+                                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="0" />
+                                                    </uix:TargetAnchorable.Anchors>
+                                                  </uix:TargetAnchorable>
+                                                </uix:NClick.Target>
+                                              </uix:NClick>
+                                              <uix:NSelectItem DisplayName="Select Item 'A'" sap:VirtualizedContainerService.HintSize="434,159.33333333333334" sap2010:WorkflowViewState.IdRef="NSelectItem_1" Item="Save and Create Another" ScopeIdentifier="456ff9a9-d063-4d3f-8a50-19d7a50694f6" Version="V3">
+                                                <uix:NSelectItem.Items>
+                                                  <scg:List x:TypeArguments="x:String" Capacity="1">
+                                                    <x:String>Save and Create Another</x:String>
+                                                  </scg:List>
+                                                </uix:NSelectItem.Items>
+                                                <uix:NSelectItem.Target>
+                                                  <uix:TargetAnchorable BrowserURL="https://fa-ewqc-saasfaprod1.fa.ocs.oraclecloud.com/fscmUI/faces/FuseTaskListManagerTop?_adf.ctrl-state=154wtffqpf_130&amp;_adf.no-new-window-redirect=true&amp;_afrLoop=11687045990050731&amp;_afrFS=16&amp;_afrMT=screen&amp;_afrMFW=1920&amp;_afrMFH=945&amp;_afrMFDW=1920&amp;_afrMFDH=1080&amp;_afrMFC=8&amp;_afrMFCI=0&amp;_afrMFM=0&amp;_afrMFR=96&amp;_afrMFG=0&amp;_afrMFS=0&amp;_afrMFO=0" DesignTimeRectangle="1806, 155, 26, 24" DesignTimeScaleFactor="1" FriendlyName="'A'" FullSelectorArgument="&lt;webctrl aria-role='presentation' css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;table' tableCol='3' tableRow='1' tag='TABLE' /&gt;&lt;webctrl isleaf='1' tableRow='1' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='presentation' tag='TABLE' /&gt;&lt;webctrl isleaf='1' type='' tag='A' class='x1kc' aaname='Save and Close' /&gt;" Guid="1f5bc23b-014f-4584-a1e3-078b006bb086" ImageBase64="" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='*' title='* - Oracle Fusion Cloud Applications' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                                                    <uix:TargetAnchorable.Anchors>
+                                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="0" />
+                                                    </uix:TargetAnchorable.Anchors>
+                                                  </uix:TargetAnchorable>
+                                                </uix:NSelectItem.Target>
+                                              </uix:NSelectItem>
+                                              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'OK'" sap:VirtualizedContainerService.HintSize="434,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="456ff9a9-d063-4d3f-8a50-19d7a50694f6" Version="V3">
+                                                <uix:NClick.Target>
+                                                  <uix:TargetAnchorable BrowserURL="https://fa-ewqc-saasfaprod1.fa.ocs.oraclecloud.com/fscmUI/faces/FuseTaskListManagerTop?_adf.ctrl-state=154wtffqpf_130&amp;_adf.no-new-window-redirect=true&amp;_afrLoop=11687045990050731&amp;_afrFS=16&amp;_afrMT=screen&amp;_afrMFW=1920&amp;_afrMFH=945&amp;_afrMFDW=1920&amp;_afrMFDH=1080&amp;_afrMFC=8&amp;_afrMFCI=0&amp;_afrMFM=0&amp;_afrMFR=96&amp;_afrMFG=0&amp;_afrMFS=0&amp;_afrMFO=0" DesignTimeRectangle="1047, 375, 35, 28" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'OK'" FullSelectorArgument="&lt;webctrl tableRow='8' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='button' tag='BUTTON' class='* p_AFTextOnly' aaname='OK' check:innerText='OK' /&gt;" Guid="2c3b98f1-8bb8-459d-916f-655d8e9d62f9" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACcAAAAgCAYAAACRpmGNAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAI5SURBVFhH1Ze/ctNAEMb1MhaT10lsPwodIyVOTcULQOxgKoaKiqFJY1sJoYYGJoHElv8koSA0m/1Od8edpZWYTJCcm/lmfbff3f60Z0+igDZ4PB64tx9G9OzFa3r6/FXtQl3Ud4eFQ2L4/ogWqyv6ffuHdVtrRF3UdwEtHMh/TFNaXd+wfuloVM8c9cFhhoVDa/0NzQgcZnhwy6trQTcFa64eLn8PuPokws35S2m1dD7XOC+HM5saiiJculxRumA1GGU4GATN3HmyT2EQUGD1hHaTfD7c/WzXZoedzLu1T8fG58icL8JN58tqDdqqSBif2rUkDtXazkB7kl4GZzx6TxC06VDvkXRPuAXrlOItPH2PEi+3tu7C6c/VYDi/BO4yXZRr0qMWCnXf5HKDbgYwcHytuEfbCiykeOL7Jf0j3Nyfz3hui37K5ScRrlZDmIdw1R16/sLzOYpwF2z4yX/fxDje050b5vL9DiDa1Hd9DBuNUt3VgLb7FedzLIUr1wlF6ru1R+OydQ3Xik6yvIXla/f25SXCgb5SBzvZNXWy7kFZ17gzB9ozMnDH1jNS1+6vFUmGY3Jlqoq2E0bZ9a3n0bm/+4b2xxGNhXM5inD4f0rU5ax43eiB8nLntLHJKHcO9A1LhsMTwORGo/X1/5QX4c7Z0LQeKdzFlM5YMKnYwLwQDq9kX7+fK6OS3lTnHPULXw3xMvvy3Uf68u1MPUXdQl3UL3ypxkAC5Ght3UJdFwzDg9u0scFwRHcvdVjsloA8rAAAAABJRU5ErkJggg==" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='*' title='* - Oracle Fusion Cloud Applications' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                                                    <uix:TargetAnchorable.Anchors>
+                                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="0" />
+                                                    </uix:TargetAnchorable.Anchors>
+                                                  </uix:TargetAnchorable>
+                                                </uix:NClick.Target>
+                                              </uix:NClick>
+                                              <ueab:WriteCellX Cell="[CurrentRow.ByField(&quot;Status&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,164.66666666666666" sap2010:WorkflowViewState.IdRef="WriteCellX_1" Value="[&quot;Complete&quot;]">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                              </ueab:WriteCellX>
+                                            </Sequence>
+                                          </uix:NCheckState.IfExists>
+                                          <uix:NCheckState.IfNotExists>
+                                            <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="496,480" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Close'" sap:VirtualizedContainerService.HintSize="434,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_10" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="456ff9a9-d063-4d3f-8a50-19d7a50694f6" Version="V3">
+                                                <uix:NClick.Target>
+                                                  <uix:TargetAnchorable BrowserURL="https://fa-ewqc-saasfaprod1.fa.ocs.oraclecloud.com/fscmUI/faces/FuseTaskListManagerTop?_afrLoop=22997986824594381&amp;_adf.ctrl-state=1220qff4r0_272" CvType="CloseButton" DesignTimeRectangle="1497, 369, 24, 27" DesignTimeScaleFactor="0.8999999761581421" FriendlyName="'A'" FullSelectorArgument="&lt;webctrl aria-role='presentation' css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table' tableCol='2' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='presentation' tag='TABLE' /&gt;&lt;webctrl type='' tag='A' class='x1pp' aaname='Close' /&gt;" Guid="a55e2a87-44a2-4866-9912-c903664c51b5" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABwAAAAfCAYAAAD0ma06AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADpSURBVEhL7ZNLCoNADIY9lQvBy/ThWjd9qPu+oIfouRRc6C3UlG9KSxfFmUIQF/PDDzEJfiRMgtXuJNpe798+v3y4yOZ4lW1+k2B3f8icDmRmeaC6PFBdywP2fS9N00jbtjIMwydP3HWdqdHjKiuQH+Z5LkVRSFVVMo6jMXFZlqZGj6usQKYAFsexZFlmJsXE5KjR4yorkNXVdS1pmkoURZIkiTExUGrfq7bJCkSskKkAhWFoTEyO2j9aHpB18UBY36+VUlNdKVPYHg3frrICp86CnPpZTB0+OfXD15YHqssD1eWB6pod+ARDidragNVg9wAAAABJRU5ErkJggg==" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='3vgsg3vu5' title='Manage Procurement Agents - Setup and Maintenance - Oracle Fusion Cloud Applications' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                                                    <uix:TargetAnchorable.Anchors>
+                                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="0" />
+                                                    </uix:TargetAnchorable.Anchors>
+                                                  </uix:TargetAnchorable>
+                                                </uix:NClick.Target>
+                                              </uix:NClick>
+                                              <ueab:WriteCellX Cell="[CurrentRow.ByField(&quot;Status&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,164.66666666666666" sap2010:WorkflowViewState.IdRef="WriteCellX_2" Value="[&quot;Agent Name Not Found&quot;]">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                              </ueab:WriteCellX>
+                                            </Sequence>
+                                          </uix:NCheckState.IfNotExists>
+                                          <uix:NCheckState.Target>
+                                            <uix:TargetAnchorable BrowserURL="https://fa-ewqc-saasfaprod1.fa.ocs.oraclecloud.com/fscmUI/faces/FuseTaskListManagerTop?_adf.ctrl-state=15hqj2kmyr_1&amp;_adf.no-new-window-redirect=true&amp;_adf.no-new-window-redirect=true&amp;_afrLoop=47920045925455162&amp;_afrWindowMode=2&amp;_afrWindowId=null&amp;_afrFS=16&amp;_afrMT=screen&amp;_afrMFW=1920&amp;_afrMFH=945&amp;_afrMFDW=1920&amp;_afrMFDH=1080&amp;_afrMFC=8&amp;_afrMFCI=0&amp;_afrMFM=0&amp;_afrMFR=96&amp;_afrMFG=0&amp;_afrMFS=0&amp;_afrMFO=0" CvTextArgument="Diaz, Gya Mari" CvType="Text" DesignTimeRectangle="1247, 692, 0, 12" DesignTimeScaleFactor="0.8999999761581421" ElementType="Text" FriendlyName="'Diaz, Gya Mari'" FullSelectorArgument="[string.Format(&quot;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;table' tableCol='2' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='SPAN' aaname='*{0}*' /&gt;&quot;, CleanName)]" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='x2ey' aaname='Diaz, Gya Mari' check:innerText='Diaz, Gya Mari' /&gt;" Guid="2915bf03-3c1e-4741-a688-d689871a0e41" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEsAAAAQCAYAAABeB4LeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG8SURBVFhH7ZYxrsIwEES5U07ABcIB4AAcID09PQegp6OgpkmVmgOkpabO10Maa9lvE1sQfekrIyHM2rvjGXstFsOMbCx8YEYas1kFmM0qQDDr8XgM2+12qKoqfJbL5XC73Z7z1+v1Oc+6byHGCc8nUE27d3C/34fValWkgZzNZhPq/DLreDyGxWzck34L4tvtdiEGT13XH/Gp7nq9fjGeMYdRYpbHW7MAYojZm4UYTNRtYF4nZ2+Jr2WRuqnwMWfntTdiMW4LrT0cDsN+v3+py+edBnuAzLVtm3+zAL8lQERd1wWRMdEYR4zvFFQ3BVuDzbJpxmPc0nE6nUK+aimW0qB12ldRG4KYWcCejI3nGAW8WYx1yorbW+bbNcYNpEM5Nn9Mg/YuD4rNirUhMVqOYr5dmqbJenP8xgVrokRKKEhxC9Ysnz+m4SOzKKIH3hNpHWMR5RoFxGdvjI+JSy0IYtwpsySWxz5XQ5FZ9oFO/XVgrDU8pBQ8n88vuWon8jHR3yCBNT7HwrdrjNu2vDULWEPHNPR9n2fWlOBhTZn1Dl74X2Nyszidy+Xiw6Mgr/RP5NSY3Kz/hNmsAvwAvDj5sS0CLNIAAAAASUVORK5CYII=" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='5afnlo285' title='Manage Procurement Agents - Setup and Maintenance - Oracle Fusion Cloud Applications' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                                              <uix:TargetAnchorable.Anchors>
+                                                <scg:List x:TypeArguments="uix:ITarget" Capacity="0" />
+                                              </uix:TargetAnchorable.Anchors>
+                                            </uix:TargetAnchorable>
+                                          </uix:NCheckState.Target>
+                                        </uix:NCheckState>
+                                      </Sequence>
+                                    </If.Else>
+                                  </If>
+                                  <Assign sap:VirtualizedContainerService.HintSize="1122,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_3">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:Int32">[Count]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:Int32">[Count+1]</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                </Sequence>
+                              </ActivityAction>
+                            </ueab:ExcelForEachRowX.Body>
+                          </ueab:ExcelForEachRowX>
+                        </Sequence>
+                      </ActivityAction>
+                    </ueab:ExcelApplicationCard.Body>
+                  </ueab:ExcelApplicationCard>
+                </ActivityAction>
+              </ueab:ExcelProcessScopeX.Body>
+            </ueab:ExcelProcessScopeX>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 1936, 1048" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC3SURBVDhPY3gro/KfEjycDPjg7vv/17ET/wmBnzt2/X9vYY9qAEjzv48fwQr+Pn4CNggbhqkB0e+0jBAGgCRB4MeqtXCTsWGQJpALkNWCDQABkKnIinFhkPOR1cMNALkCWSE+DAMgNtwAEEAOHFz4U2g0WO2fK9fAfLAB32fPhwuCFCBrQMafkzPhAfm1oQUsBjYAFDggzcQC5MAGGwDDXwrLUKINHYNiAKQGWQ+KAeTggTZA5T8AeeKZe/mBYcQAAAAASUVORK5CYII=" Selector="&lt;html app='chrome.exe' htmlwindowname='*' title='*- Oracle Applications' /&gt;" Title="Setup and Maintenance - Oracle Applications" Url="[in_Link]" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
